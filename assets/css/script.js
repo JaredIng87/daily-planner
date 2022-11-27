@@ -1,29 +1,24 @@
 var today = moment().format('[Today is ]MMM Do YYYY');
 var now = moment().hour();
-var element = document.querySelectorAll(".time-block");
+var timeBlock = document.querySelectorAll(".time-block");
+
 
 
 $("#currentDay").text(today);
 
-console.log(text);
-/**function checkTime() {
-        if (hour > now) {
 
-            element.classList.add('future');
-        }
-        else if (hour == now) {
-            element.classList.add('present');
-        }
-        else {
-            element.classList.add('past');
-        }
-};*/
-
-
-//checkTime();
-
-
-
-
+for (var i = 0; i < timeBlock.length; i++) {
+    var state = timeBlock[i].getAttribute("data-number");
+        console.log(state);
+    if (state < now) {
+        timeBlock[i].classList.add("past");
+    }
+    else if (state == now) {
+        timeBlock[i].classList.add("present");
+    }
+    else {
+        timeBlock[i].classList.add("future");
+    }
+}
 
 
