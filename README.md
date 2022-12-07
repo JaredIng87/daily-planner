@@ -6,4 +6,6 @@ in this app i created a daily schedule that a user can use to keep track of dail
 - allow all time blocks to save inputs (currently only '9' time block works)
 
 github repo: https://github.com/JaredIng87/daily-planner
-deployed URL: 
+deployed URL:  https://jareding87.github.io/daily-planner/
+
+![screenshot](./assets/images/Screenshot%202022-12-07%20143026.png)
