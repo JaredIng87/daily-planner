@@ -1,16 +1,14 @@
 var today = moment().format('[Today is ]MMM Do YYYY');
 var now = moment().hour();
 var timeBlock = document.querySelectorAll(".time-block");
-var saveButton = document.querySelectorAll(".btn");
-var toBeDoneSpan = document.querySelectorAll(".text");
-
 
 $("#currentDay").text(today);
+
+renderToBeDone();
 
 
 for (var i = 0; i < timeBlock.length; i++) {
     var block = timeBlock[i].getAttribute("data-number");
-        console.log(block);
     if (block < now) {
         timeBlock[i].classList.add("past");
     }
@@ -20,10 +18,31 @@ for (var i = 0; i < timeBlock.length; i++) {
     else {
         timeBlock[i].classList.add("future");
     }
-}
-
-for (var i = 0; i < saveButton.length; i++) {
-saveButton[i].addEventListener("click", function() {
-    console.log("hello");
-  });
 };
+
+var nineBtn = document.querySelector("#nineBtn");
+var txtNine = document.querySelector("#txtNine");
+
+nineBtn.addEventListener("click", function() {
+    var toBeDone = txtNine.value;
+
+    localStorage.setItem("toBeDone", toBeDone);
+
+    renderToBeDone();
+  });
+
+  function renderToBeDone() {
+    var storedTBD = localStorage.getItem("toBeDone");
+
+    if (!storedTBD) {
+        return;
+      }
+
+    var txtNine = document.querySelector("#txtNine");
+    console.log(storedTBD);
+
+    txtNine.value = storedTBD;
+};
+
+
+
